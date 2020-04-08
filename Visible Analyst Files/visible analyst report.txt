@@ -1,0 +1,2405 @@
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                    Page:  1
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Master Planning Statement					Planning Statement
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     «extend»						Relationship
+           Attached Objects:
+               Confirm MSC Number
+                «extend»						MIN: ?   MAX: many
+               Verify student information
+           Foreign Key(s):
+           Location:
+               User Case Diagram
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     «generalize»						Data Element
+           Location:
+               Relationship Line -->		257
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     «include»						Relationship
+           Attached Objects:
+               Check package condition
+                «include»						MIN: ?   MAX: many
+               Verify student information
+           Foreign Key(s):
+           Location:
+               User Case Diagram
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                    Page:  2
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     «include»						Relationship
+           Attached Objects:
+               Check package condition
+                «include»						MIN: ?   MAX: many
+               Check physical condition
+           Foreign Key(s):
+           Location:
+               User Case Diagram
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     «include»						Relationship
+           Attached Objects:
+               Notify Student Email
+                «include»						MIN: ?   MAX: many
+               Give zone number
+           Foreign Key(s):
+           Location:
+               User Case Diagram
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Acceptable-Package-Condition    				Data Flow
+           Location:
+               Diagram 0	 ( 0 )
+    			Source:	Inspect Package  ( Process )
+    			Dest:	Assign Package Zone  ( Process )
+               Inspect Package Child	 ( 3 )
+    			Source:	Paste Local Package Barcode  ( Process )
+    			Dest:	*** Not on Diagram ***
+               Assign Package Zone Child  ( 4 )
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                    Page:  3
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+    			Source:	*** Not on Diagram ***
+    			Dest:	Check Avaliable Zones  ( Process )
+           Date Last Altered:	11/2/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Add Student Record    					Process
+           Description:
+               This process assigns a MSC Number of a new Student and adds the inputted student identificaton information
+               to the Student Database.
+           Process #:	1
+           Process Description:
+               This process inputs the student name and the student z number (Student ID) given by the Student external entity and outputs a randomly assigned MSC Number. All of this information is added to the Student Database. 
+           Location:
+               Diagram 0	 ( 0 )
+    			Input Flows:
+    			Student-Information
+    			Output Flows:
+    			New-Student-Record
+           Date Last Altered:	12/4/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Address Line						Data Element
+           Data element attributes
+               Storage Type:    	Char
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Student Database
+               Data Flow -->    		Correct-Package-Verification
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                    Page:  4
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Admissions Department					Function
+           Location:
+               Stockton FDD
+    			Children:	Student Record System	  ( Process )
+    			Parent:	Stockton University	  ( Function )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     are handled by						Relationship
+           Attached Objects:
+               Packages
+                are handled by    					MIN: 1   MAX: many
+               Employees
+                [ stores ]						MIN: 0   MAX: many
+           Foreign Key(s):
+               Packages 'are handled by' Employees
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     are handled by						Relationship
+           Attached Objects:
+               Letter Mail
+                are handled by    					MIN: 1   MAX: many
+               Employees
+                [ stores ]						MIN: 0   MAX: many
+           Foreign Key(s):
+               Letter Mail 'are handled by' Employees
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                    Page:  5
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Location:
+               Mailroom ER
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     are handled by						Relationship
+           Attached Objects:
+               Letter Mail
+                are handled by    					MIN: 1   MAX: many
+               Third Party Mail Service
+                [ delivers ]						MIN: 1   MAX: many
+           Foreign Key(s):
+               Letter Mail 'are handled by' Third Party Mail Service
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     are serviced by						Relationship
+           Attached Objects:
+               Packages
+                are serviced by    					MIN: 1   MAX: many
+               Third Party Mail Service
+                [ delivers ]						MIN: 1   MAX: many
+           Foreign Key(s):
+               Packages 'are serviced by' Third Party Mail Service
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                    Page:  6
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Assign Package Zone					Process
+           Description:
+               Assigns a zone to the package for storage.
+           Process #:	4
+           Process Description:
+               If is package is deemed acceptable and ready to be picked up, a zone number is assigned to it. This automated process uses the Zone Capacity Database to assign a zone for the package based on the capacity of each zone. The package is manually stored by a
+                mail associate in Package Storage in the correctly assigned zone. The zone number and package oganization vertification are sent to the Notify Student process. 
+           Location:
+               Diagram 0	 ( 0 )
+    			Input Flows:
+    			Acceptable-Package-Condition
+    			Zone-Capacity-Information
+    			Output Flows:
+    			Package-Organization
+    			Store-Package
+    			Zone-Number
+           Date Last Altered:	12/4/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Assign Package Zone					Use Case
+           Location:
+               User Case Diagram
+               System Boundary -->		Package Handling System
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                    Page:  7
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Assign Random Zone					Process
+           Description:
+               Assigns a random zone for the package.
+           Process #:	4.2
+           Process Description:
+               Assigns a random zone for the package based on the avaliable zone numbers found in the previous process. 
+           Location:
+               Assign Package Zone Child  ( 4 )
+    			Input Flows:
+    			Avaliable-Zone-Numbers
+    			Output Flows:
+    			Assigned-Zone-Number
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Assigned-Zone-Number					Data Flow
+           Location:
+               Assign Package Zone Child  ( 4 )
+    			Source:	Assign Random Zone  ( Process )
+    			Dest:	Store Package  ( Process )
+           Date Last Altered:	11/21/2018    		Date Created: 11/21/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Avaliable-Zone-Numbers					Data Flow
+           Location:
+               Assign Package Zone Child  ( 4 )
+    			Source:	Check Avaliable Zones  ( Process )
+    			Dest:	Assign Random Zone  ( Process )
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                    Page:  8
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Billing System						Process
+           Process #:	Not Assigned
+           Location:
+               Stockton FDD
+    			Parent:	Bursars	  ( Function )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Bursars						Function
+           Location:
+               Stockton FDD
+    			Children:	Billing System   ( Process )
+    			Parent:	Stockton University	  ( Function )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Check Avaliable Zones					Process
+           Description:
+               Consults the Zone Capacity Database and finds all of the zones that have avaliable space. 
+           Process #:	4.1
+           Process Description:
+               When a package is ready to be stored, the potential storing locations are found using the Zone Capacity Database. this process sorts out which zones are not full.
+           Location:
+               Assign Package Zone Child  ( 4 )
+    			Input Flows:
+    			Acceptable-Package-Condition
+    			Zone-Capacity-Information
+    			Output Flows:
+    			Avaliable-Zone-Numbers
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                    Page:  9
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Check MSC Number					Process
+           Description:
+               The MSC Number is checked to see if it is valid and belongs to the Stockton student. 
+           Process #:	3.5
+           Process Description:
+               The MSC number on the shipping address is checked to see f it coorelated to a valid MSC Number in the Student database. If the MSC Number is invalid and does not coorelate to the name of the student, this results in an error and the package can not be
+                processed in the system. If the MSC numbers coorelate, the package can be moved on to the next child process.
+           Location:
+               Inspect Package Child	 ( 3 )
+    			Input Flows:
+    			Student-Information
+    			MSC-Number-Information
+    			Output Flows:
+    			MSC-Number-Approval
+    			Invalid-MSC-Number-Error
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Check package condition					Use Case
+           Location:
+               User Case Diagram
+               System Boundary -->		Package Handling System
+           All Attached Relationships:
+                «include»						MIN: ?   MAX: many
+               Verify student information
+                «include»						MIN: ?   MAX: many
+               Check physical condition
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  10
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Check Physical Condition					Process
+           Description:
+               Checks the physical package condition. 
+           Process #:	3.2
+           Process Description:
+               This process checks the outside of the package and checks for any critical damage. If critical damage is found, the package is sent to the Third Party Mail Service for investigation. If it passes, the package is approved and scanned into the system for
+                the next process.
+           Location:
+               Inspect Package Child	 ( 3 )
+    			Input Flows:
+    			Package-Delivery-Verification
+    			Output Flows:
+    			Physical-Package-Approval
+    			Unsatisfactory-Results
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Check physical condition					Use Case
+           Location:
+               User Case Diagram
+               System Boundary -->		Package Handling System
+           All Attached Relationships:
+                [ «include» ]    					MIN: 1   MAX: 1
+               Check package condition
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Check Student Name					Process
+           Description:
+               Checks to see if the name of the package belongs to a Stockton Student.
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  11
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Process #:	3.4
+           Process Description:
+               The name on the shipping address is analyzed. The Student database is is consulted to see if the name on the shipping address coorelates to a name in the Student Database. If the package is not belonging to a Stockton student, it results in an error and
+                the package cannot be processed in the system. If the names coorelate, the shipping address is further analyzed. 
+           Location:
+               Inspect Package Child	 ( 3 )
+    			Input Flows:
+    			Recipient-Address
+    			Student-Verification
+    			Output Flows:
+    			Student-Information
+    			Not-A-Student-Error
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Confirm MSC Number					Use Case
+           Location:
+               User Case Diagram
+               System Boundary -->		Package Handling System
+           All Attached Relationships:
+                «extend»						MIN: ?   MAX: many
+               Verify student information
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     consists of						Relationship
+           Attached Objects:
+               Mailroom
+                consists of    					MIN: 1   MAX: many
+               Employees
+                [ work at ]						MIN: 1   MAX: 1
+           Foreign Key(s):
+               Mailroom 'consists of' Employees
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  12
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Correct-Package    					Data Flow
+           Location:
+               Validate Package Pickup Child  ( 8 )
+    			Source:	Verify Found Package  ( Process )
+    			Dest:	Scan Local Package Barcode  ( Process )
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Correct-Package-Verification    				Data Flow
+           Description:
+               The process of the mail clerk telling the student if the package with the given information is theirs.
+           Composition:
+               Name :  Char
+               MSC Number :  Integer 4
+               Package :  Char
+               Address Line :  Char
+               ZIP Code :  Integer 4
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Package Handling System  ( Process )
+    			Dest:	Student  ( External Entity )
+               Diagram 0	 ( 0 )
+    			Source:	Validate Package Pickup  ( Process )
+    			Dest:	Student  ( External Entity )
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  13
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+               Validate Package Pickup Child  ( 8 )
+    			Source:	Verify Found Package  ( Process )
+    			Dest:	*** Not on Diagram ***
+           Date Last Altered:	12/4/2018			Date Created: 11/21/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Deliver Package    					Process
+           Description:
+               Process of delivering a student's package to the Mailroom.
+           Process #:	2
+           Process Description:
+               The Third Party Mail Service delivers the Student package to the Mailroom. The unorganized packages are later transported into a inspecting area.
+           Location:
+               Diagram 0	 ( 0 )
+    			Input Flows:
+    			Package-Delivery
+    			Output Flows:
+    			Unorganized-Packages
+           Date Last Altered:	12/4/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Deliver Package    					Use Case
+           Location:
+               User Case Diagram
+               System Boundary -->		Package Handling System
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  14
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     delivers						Relationship
+           Attached Objects:
+               Third Party Mail Service
+                delivers						MIN: 1   MAX: many
+               Packages
+                [ are serviced by ]					MIN: 1   MAX: many
+           Foreign Key(s):
+               Packages 'are serviced by' Third Party Mail Service
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     delivers						Relationship
+           Attached Objects:
+               Third Party Mail Service
+                delivers						MIN: 1   MAX: many
+               Letter Mail
+                [ are handled by ]					MIN: 1   MAX: many
+           Foreign Key(s):
+               Letter Mail 'are handled by' Third Party Mail Service
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  15
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Desired-Package    					Data Flow
+           Description:
+               The act of physically giving the student their package.
+           Composition:
+               Package :  Char
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Package Handling System  ( Process )
+    			Dest:	Student  ( External Entity )
+               Diagram 0	 ( 0 )
+    			Source:	Package Storage  ( Data Store )
+    			Dest:	Identify Package Location  ( Process )
+    			Source:	Validate Package Pickup  ( Process )
+    			Dest:	Student  ( External Entity )
+               Identify Package Location Child  ( 7 )
+    			Source:	Package Storage  ( Data Store )
+    			Dest:	Find Student Package  ( Process )
+               Validate Package Pickup Child  ( 8 )
+    			Source:	Give Package  ( Process )
+    			Dest:	*** Not on Diagram ***
+           Date Last Altered:	12/4/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Desired-Package-Zone					Data Flow
+           Description:
+               This represents the action of the mail associate finding the package in the specified zone that the student gave
+               them.
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  16
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Composition:
+               Zone Number :  Integer 4
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Mail Associate  ( External Entity )
+    			Dest:	Package Handling System  ( Process )
+               Diagram 0	 ( 0 )
+    			Source:	Mail Associate  ( External Entity )
+    			Dest:	Identify Package Location  ( Process )
+               Identify Package Location Child  ( 7 )
+    			Source:	*** Not on Diagram ***
+    			Dest:	Find Package Zone  ( Process )
+           Date Last Altered:	12/4/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     DNE    						Process
+           Process #:	9
+           Location:
+               Diagram 0	 ( 0 )
+           Date Last Altered:	11/26/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Email-Notification    					Data Flow
+           Description:
+               Represents the automatic email sent out by the system to the correct Student's Gmail address telling them of
+               package delivery.
+           Composition:
+               Zone Number :  Integer 4
+               Pickup Information :  Char
+               Email Address :  Char
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  17
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Package Handling System  ( Process )
+    			Dest:	Student  ( External Entity )
+               Diagram 0	 ( 0 )
+    			Source:	Notify Student  ( Process )
+    			Dest:	Student  ( External Entity )
+               Notify Student Child	 ( 5 )
+    			Source:	Email Student  ( Process )
+    			Dest:	*** Not on Diagram ***
+           Date Last Altered:	12/4/2018			Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Email Address						Data Element
+           Data element attributes
+               Storage Type:    	Char
+               Null Type:		NotNull
+           Location:
+               Data Flow -->    		Email-Notification
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Email Student						Process
+           Description:
+               The email is sent out to the student.
+           Process #:	5.3
+           Process Description:
+               An Email is sent out to the Student's Gmail address, which includes the pickup information and the zone number of the package. This information is crucial for package pickup in later processes. 
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  18
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Location:
+               Notify Student Child	 ( 5 )
+    			Input Flows:
+    			Pickup-Information
+    			Zone-Number
+    			Output Flows:
+    			Email-Notification
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Employees						Entity
+           Foreign Key(s):
+               Mailroom 'consists of' Employees
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+               Packages 'are handled by' Employees
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+               Letter Mail 'are handled by' Employees
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+    			Attached relationships on Mailroom ER:
+    			work at					MIN: 1   MAX: 1
+    			Mailroom
+    			stores					MIN: 0   MAX: many
+    			Packages
+    			stores					MIN: 0   MAX: many
+    			Letter Mail
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  19
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Enter Sorting Area    					Process
+           Description:
+               The package is sent to the sorting area of the Mailroom
+           Process #:	3.1
+           Process Description:
+               The package is sent to a package sorting area in the Mailroom to prepare for the physical condition test and the shipping address validity test.
+           Location:
+               Inspect Package Child	 ( 3 )
+    			Input Flows:
+    			Unorganized-Packages
+    			Output Flows:
+    			Package-Delivery-Verification
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Find Package						Use Case
+           Location:
+               User Case Diagram
+               System Boundary -->		Package Handling System
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Find Package Zone    					Process
+           Description:
+               The process of the mail associate finding the zone of the desired package.
+           Process #:	7.1
+           Process Description:
+               The Mail Associate uses the Student's specified zone number to find the zone in which the package is located at in Package Storage. Once found, the package can be located. 
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  20
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Location:
+               Identify Package Location Child  ( 7 )
+    			Input Flows:
+    			Student-Verification
+    			Desired-Package-Zone
+    			Output Flows:
+    			Revelent-Zone-Verified
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Find Student Package					Process
+           Description:
+               The process of the mail associate finding the package in the zone.
+           Process #:	7.2
+           Process Description:
+               Using the student ID that the Student gave them, the mail associate finds the correct package in the zone that coorelates to the Student name found on the package. This process can be done multiple times until the correct package is found. 
+           Location:
+               Identify Package Location Child  ( 7 )
+    			Input Flows:
+    			Revelent-Zone-Verified
+    			Student-Information
+    			Desired-Package
+    			Relocation-Request
+    			Output Flows:
+    			Package-Verification-Request
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Generate Pickup Information    				Process
+           Description:
+               Pickup information is generated by the system.
+           Process #:	5.2
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  21
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Process Description:
+               Pickup information is generated by the system, which includes information on how to get to the mailroom and what to bring to the mailroom upon arrival. This information will be automatically inputted onto the email as a template.
+           Location:
+               Notify Student Child	 ( 5 )
+    			Input Flows:
+    			Request-Approval
+    			Output Flows:
+    			Pickup-Information
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Give Package						Process
+           Description:
+               The Mail Associate gives the package to the Student. 
+           Process #:	8.5
+           Process Description:
+               Once the signature is validated, the student can recieve their package.
+           Location:
+               Validate Package Pickup Child  ( 8 )
+    			Input Flows:
+    			Successful-Signature-Approval
+    			Output Flows:
+    			Desired-Package
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Give zone number    					Use Case
+           Location:
+               User Case Diagram
+               System Boundary -->		Package Handling System
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  22
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           All Attached Relationships:
+                [ «include» ]    					MIN: 1   MAX: 1
+               Notify Student Email
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     go to    						Relationship
+           Attached Objects:
+               Students
+                go to						MIN: 1   MAX: 1
+               Mailroom
+                [ services ]						MIN: 1   MAX: many
+           Foreign Key(s):
+               Mailroom 'services' Students
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Handle I.S. Issues    					Use Case
+           Location:
+               User Case Diagram
+               System Boundary -->		Package Handling System
+           Date Last Altered:	11/6/2018			Date Created: 11/6/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Handle Package and Costumer Issues				Use Case
+           Location:
+               User Case Diagram
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  23
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+               System Boundary -->		Package Handling System
+           Date Last Altered:	11/6/2018			Date Created: 11/6/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Identify Package Location					Process
+           Description:
+               The process of the mail associate locating the Student's package in the specified zone.
+           Process #:	7
+           Process Description:
+               The Mail associate uses the student ID of the student as well as the specified zone number to locate the Student's package in storage. If a package was found previously but not belonging to the Student, the mail associate tries to find the correct
+                package again. Once found, the package is sent to the student verification process.
+           Location:
+               Diagram 0	 ( 0 )
+    			Input Flows:
+    			Student-Verification
+    			Desired-Package-Zone
+    			Desired-Package
+    			Relocation-Request
+    			Student-Information
+    			Output Flows:
+    			Package-Verification-Request
+           Date Last Altered:	12/4/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Incorrect-Package    					Data Flow
+           Location:
+               Diagram 0	 ( 0 )
+    			Source:	Validate Package Pickup  ( Process )
+    			Dest:	Package Storage  ( Data Store )
+               Validate Package Pickup Child  ( 8 )
+    			Source:	Verify Found Package  ( Process )
+    			Dest:	Package Storage  ( Data Store )
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  24
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Inspect Package    					Process
+           Description:
+               Inspects the physical condition of the package as well as the validity of the shipping address information.
+           Process #:	3
+           Process Description:
+               The unorganized packages are checked to see if they have satisfactory physical condition. If it passes, the shipping address is analyzed to see if everything is valid. This includes the name, address, and MSC Number, all used to check to see if the packa
+               ge belongs to a Stockton University student. When the package is scanned into the system, if there is a tracking number, it is updated, sending the location and time to the Third Party Mail Service. Once all of the analysis is done and the package passes
+                every test, it is sent to the zone assigning process and deemed acceptable to pickup by the student.
+           Location:
+               Diagram 0	 ( 0 )
+    			Input Flows:
+    			Student-Verification
+    			MSC-Number-Information
+    			Unorganized-Packages
+    			Local-Package-Label
+    			Tracking-Number
+    			Output Flows:
+    			Acceptable-Package-Condition
+    			Update-Tracking
+           Date Last Altered:	12/4/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Invalid-MSC-Number-Error					Data Flow
+           Location:
+               Inspect Package Child	 ( 3 )
+    			Source:	Check MSC Number  ( Process )
+    			Dest:	*** Not on Diagram ***
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  25
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     is a    						Relationship
+           Attached Objects:
+               Residential Student
+                is a						MIN: 0   MAX: 1
+               Student
+           Foreign Key(s):
+           Location:
+               User Case Diagram
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     is a    						Relationship
+           Attached Objects:
+               Student
+                is a						MIN: 0   MAX: 1
+               Student
+           Foreign Key(s):
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     isTheirPackage    					Data Element
+           Data element attributes
+               Storage Type:    	Binary
+               Null Type:		NotNull
+           Location:
+               Data Flow -->    		Package-Identification-Results
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     isValidSignature    					Data Element
+           Data element attributes
+               Storage Type:    	Binary
+               Null Type:		NotNull
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  26
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Location:
+               Data Flow -->    		Validate-Pickup
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Letter Mail						Associative Entity
+           Location:
+               Mailroom ER
+    			Attached relationships on Mailroom ER:
+    			are handled by    				MIN: 1   MAX: many
+    			Employees
+    			are handled by    				MIN: 1   MAX: many
+    			Third Party Mail Service
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Local-Package-Label					Data Flow
+           Description:
+               This is the process of the mail associate pasting a local package barcode on the package. 
+           Composition:
+               Local Package Barcode Label :  Object
+               MSC Number :  Integer 4
+           Notes:
+               The local package barcode on the package will be later used for pickup purposes. This barcode includes the
+               MSC Number of the package.
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Mail Associate  ( External Entity )
+    			Dest:	Package Handling System  ( Process )
+               Diagram 0	 ( 0 )
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  27
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+    			Source:	Mail Associate  ( External Entity )
+    			Dest:	Inspect Package  ( Process )
+               Inspect Package Child	 ( 3 )
+    			Source:	*** Not on Diagram ***
+    			Dest:	Paste Local Package Barcode  ( Process )
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Local Package Barcode Label    				Data Element
+           Data element attributes
+               Domain:		Object
+               Storage Type:    	Undefined
+           Location:
+               Data Flow -->    		Local-Package-Label
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Location						Data Element
+           Data element attributes
+               Storage Type:    	Char
+               Null Type:		NotNull
+           Location:
+               Data Flow -->    		Update-Tracking
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Mail Associate						External Entity
+           Description:
+               The Mail Associate is a general term for anyone who works for the Stockton Mailroom.
+           Alias:
+               Mail Clerk
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  28
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Notes:
+               The mail associate is responsible for assigning package location, and costumer service upon student pickup.
+               They are also reponsible for scanning the packages into the system. 
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Input Flows:
+    			Zone-Number
+    			Signature-For-Approval
+    			Output Flows:
+    			Local-Package-Label
+    			Desired-Package-Zone
+    			Validate-Pickup
+               Diagram 0	 ( 0 )
+    			Input Flows:
+    			Zone-Number
+    			Output Flows:
+    			Desired-Package-Zone
+    			Input Flows:
+    			Signature-For-Approval
+    			Output Flows:
+    			Validate-Pickup
+    			Output Flows:
+    			Local-Package-Label
+           Date Last Altered:	12/4/2018			Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Mail Associate						Actor
+           Location:
+               User Case Diagram
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  29
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Mail Clerk						Alias
+           Alias:
+               Mail Associate
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Mail Services Department					Function
+           Location:
+               Stockton FDD
+    			Children:	Package Handling System   ( Process )
+    			Parent:	Stockton University	  ( Function )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Mailroom						Associative Entity
+           Location:
+               Mailroom ER
+    			Attached relationships on Mailroom ER:
+    			services					MIN: 1   MAX: many
+    			Students
+    			consists of    				MIN: 1   MAX: many
+    			Employees
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Manager						Actor
+           Location:
+               User Case Diagram
+           Date Last Altered:	11/6/2018			Date Created: 11/6/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  30
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     MSC-Number-Approval					Data Flow
+           Location:
+               Inspect Package Child	 ( 3 )
+    			Source:	Check MSC Number  ( Process )
+    			Dest:	Paste Local Package Barcode  ( Process )
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     MSC-Number-Information					Data Flow
+           Location:
+               Diagram 0	 ( 0 )
+    			Source:	Student Database  ( Data Store )
+    			Dest:	Inspect Package  ( Process )
+               Inspect Package Child	 ( 3 )
+    			Source:	Student Database  ( Data Store )
+    			Dest:	Check MSC Number  ( Process )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     MSC Number						Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Length:		4
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Student Database
+               Data Flow -->    		New-Student-Record
+               Data Flow -->    		Local-Package-Label
+               Data Flow -->    		Correct-Package-Verification
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  31
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Name    						Data Element
+           Data element attributes
+               Storage Type:    	Char
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Student Database
+               Data Flow -->    		New-Student-Record
+               Data Flow -->    		Student-Information
+               Data Flow -->    		Correct-Package-Verification
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     New-Student-Record					Data Flow
+           Description:
+               A process that includes the Student's identification information and a new MSC Number generated from
+               process 1.
+           Composition:
+               Name :  Char
+               Z Number :  Integer 4
+               MSC Number :  Integer 4
+           Location:
+               Diagram 0	 ( 0 )
+    			Source:	Add Student Record  ( Process )
+    			Dest:	Student Database  ( Data Store )
+           Date Last Altered:	12/4/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Not-A-Student-Error					Data Flow
+           Location:
+               Inspect Package Child	 ( 3 )
+    			Source:	Check Student Name  ( Process )
+    			Dest:	*** Not on Diagram ***
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  32
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Notify Student						Process
+           Description:
+               An Email is sent out to the student, telling them pickup information and the zone number of the package.
+           Process #:	5
+           Process Description:
+               Assuming a package is stored in the correct zone, this process sends out an automatic email to a Student's Stockton Gmail account. This email includes information of how to pickup their package and more importantly their package zone number. 
+           Location:
+               Diagram 0	 ( 0 )
+    			Input Flows:
+    			Package-Organization
+    			Zone-Number
+    			Output Flows:
+    			Email-Notification
+               Stockton FDD
+    			Parent:	Organize Package   ( Process )
+           Date Last Altered:	12/4/2018			Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Notify Student Email					Use Case
+           Location:
+               User Case Diagram
+               System Boundary -->		Package Handling System
+           All Attached Relationships:
+                «include»						MIN: ?   MAX: many
+               Give zone number
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  33
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Object    						Data Element [Domain]
+           Data element attributes
+               Storage Type:    	Undefined
+           Location:
+               Data Element -->		Local Package Barcode Label
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Organize Package    					Process
+           Process #:	Not Assigned
+           Location:
+               Stockton FDD
+    			Children:	Verify Student   ( Process )
+    				Notify Student   ( Process )
+    				Verify Package Pick Up	  ( Process )
+    				Sort Mail	  ( Process )
+    				Verify Package ID   ( Process )
+    			Parent:	Package Handling System   ( Process )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Package						Data Element
+           Data element attributes
+               Storage Type:    	Char
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Package Storage
+               Data Flow -->    		Desired-Package
+               Data Flow -->    		Package-Delivery
+               Data Flow -->    		Correct-Package-Verification
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  34
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Package-Delivery    					Data Flow
+           Description:
+               The act of the Third Party Mail Service delivering the student't package to the Stockton mailroom.
+           Composition:
+               Package :  Char
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Third Party Mail Service  ( External Entity )
+    			Dest:	Package Handling System  ( Process )
+               Diagram 0	 ( 0 )
+    			Source:	Third Party Mail Service  ( External Entity )
+    			Dest:	Deliver Package  ( Process )
+           Date Last Altered:	12/4/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Package-Delivery-Verification    				Data Flow
+           Location:
+               Inspect Package Child	 ( 3 )
+    			Source:	Enter Sorting Area  ( Process )
+    			Dest:	Check Physical Condition  ( Process )
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Package-Identification-Results    				Data Flow
+           Description:
+               The Student verifies with the package information weather or not the package is theirs.
+           Composition:
+               isTheirPackage :  Binary
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  35
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Student  ( External Entity )
+    			Dest:	Package Handling System  ( Process )
+               Diagram 0	 ( 0 )
+    			Source:	Student  ( External Entity )
+    			Dest:	Validate Package Pickup  ( Process )
+               Validate Package Pickup Child  ( 8 )
+    			Source:	*** Not on Diagram ***
+    			Dest:	Verify Found Package  ( Process )
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Package-Organization					Data Flow
+           Location:
+               Diagram 0	 ( 0 )
+    			Source:	Assign Package Zone  ( Process )
+    			Dest:	Notify Student  ( Process )
+               Assign Package Zone Child  ( 4 )
+    			Source:	Store Package  ( Process )
+    			Dest:	*** Not on Diagram ***
+               Notify Student Child	 ( 5 )
+    			Source:	*** Not on Diagram ***
+    			Dest:	Request Student Notification  ( Process )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Package-Request    					Data Flow
+           Description:
+               The in-person request for a package by the Student to the Mail Associate.
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  36
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Composition:
+               Zone Number :  Integer 4
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Student  ( External Entity )
+    			Dest:	Package Handling System  ( Process )
+               Diagram 0	 ( 0 )
+    			Source:	Student  ( External Entity )
+    			Dest:	Verify Student  ( Process )
+           Date Last Altered:	12/4/2018			Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Package-Verification-Request    				Data Flow
+           Location:
+               Diagram 0	 ( 0 )
+    			Source:	Identify Package Location  ( Process )
+    			Dest:	Validate Package Pickup  ( Process )
+               Identify Package Location Child  ( 7 )
+    			Source:	Find Student Package  ( Process )
+    			Dest:	*** Not on Diagram ***
+               Validate Package Pickup Child  ( 8 )
+    			Source:	*** Not on Diagram ***
+    			Dest:	Verify Found Package  ( Process )
+           Date Last Altered:	11/20/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Package Handling System					Process
+           Process #:	0
+           Location:
+               Stockton DFD  ( CONTEXT )
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  37
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+    			Input Flows:
+    			Student-Information
+    			Package-Request
+    			Package-Identification-Results
+    			Valid-Signature
+    			Local-Package-Label
+    			Desired-Package-Zone
+    			Validate-Pickup
+    			Package-Delivery
+    			Tracking-Number
+    			Output Flows:
+    			Email-Notification
+    			Correct-Package-Verification
+    			Desired-Package
+    			Zone-Number
+    			Signature-For-Approval
+    			Update-Tracking
+               Stockton FDD
+    			Children:	Organize Package   ( Process )
+    			Parent:	Mail Services Department   ( Function )
+           Date Last Altered:	11/1/2018			Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Package Handling System					System Boundary
+           Composition:
+               Assign Package Zone
+               Check package condition
+               Check physical condition
+               Confirm MSC Number
+               Deliver Package
+               Find Package
+               Give zone number
+               Handle I.S. Issues
+               Handle Package and Costumer Issues
+               Notify Student Email
+               Sign signature for pickup verification
+               Specify zone number
+               Verify student information
+           Location:
+               User Case Diagram
+           Date Last Altered:	11/6/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  38
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Package Storage    					Data Store
+           Description:
+               The represents the physical storage area of the Package in 1 of the 12 zones
+           Data Store #:	D5
+           Composition:
+               Package :  Char
+           Notes:
+               Manual Data Store
+           Location:
+               Diagram 0	 ( 0 )
+    			Input Flows:
+    			Store-Package
+    			Incorrect-Package
+    			Output Flows:
+    			Desired-Package
+               Assign Package Zone Child  ( 4 )
+    			Input Flows:
+    			Store-Package
+               Identify Package Location Child  ( 7 )
+    			Output Flows:
+    			Desired-Package
+               Validate Package Pickup Child  ( 8 )
+    			Input Flows:
+    			Incorrect-Package
+           Date Last Altered:	12/4/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Packages						Associative Entity
+           Location:
+               Mailroom ER
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  39
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+    			Attached relationships on Mailroom ER:
+    			are handled by    				MIN: 1   MAX: many
+    			Employees
+    			are serviced by    				MIN: 1   MAX: many
+    			Third Party Mail Service
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Paste Local Package Barcode    				Process
+           Description:
+               A package is given a local package label for it to be scanned later during student pickup.
+           Process #:	3.6
+           Process Description:
+               Once all information coorelates to a Stockton Student, a local package label is generated by the system and pasted onto the package by the mail associate. When the barcode is scanned during pickup, it shows all of the package information, including the
+                MSC Number of the student. 
+           Location:
+               Inspect Package Child	 ( 3 )
+    			Input Flows:
+    			MSC-Number-Approval
+    			Local-Package-Label
+    			Output Flows:
+    			Acceptable-Package-Condition
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Physical-Package-Approval					Data Flow
+           Location:
+               Inspect Package Child	 ( 3 )
+    			Source:	Check Physical Condition  ( Process )
+    			Dest:	Scan Tracking Number  ( Process )
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  40
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Pickup-Information    					Data Flow
+           Location:
+               Notify Student Child	 ( 5 )
+    			Source:	Generate Pickup Information  ( Process )
+    			Dest:	Email Student  ( Process )
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Pickup Information    					Data Element
+           Data element attributes
+               Storage Type:    	Char
+               Null Type:		NotNull
+           Location:
+               Data Flow -->    		Email-Notification
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Recipient-Address    					Data Flow
+           Location:
+               Inspect Package Child	 ( 3 )
+    			Source:	Scan Tracking Number  ( Process )
+    			Dest:	Check Student Name  ( Process )
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Recipient, Residental Student    				Alias
+           Alias:
+               Student
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  41
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Registeration System					Process
+           Process #:	Not Assigned
+           Location:
+               Stockton FDD
+    			Parent:	Registration   ( Function )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Registration						Function
+           Location:
+               Stockton FDD
+    			Children:	Registeration System	  ( Process )
+    			Parent:	Stockton University	  ( Function )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Relocation-Request    					Data Flow
+           Location:
+               Diagram 0	 ( 0 )
+    			Source:	Validate Package Pickup  ( Process )
+    			Dest:	Identify Package Location  ( Process )
+               Identify Package Location Child  ( 7 )
+    			Source:	*** Not on Diagram ***
+    			Dest:	Find Student Package  ( Process )
+               Validate Package Pickup Child  ( 8 )
+    			Source:	Verify Found Package  ( Process )
+    			Dest:	*** Not on Diagram ***
+           Date Last Altered:	11/21/2018    		Date Created: 11/21/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  42
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Request-Approval    					Data Flow
+           Location:
+               Notify Student Child	 ( 5 )
+    			Source:	Request Student Notification  ( Process )
+    			Dest:	Generate Pickup Information  ( Process )
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Request Student Notification					Process
+           Description:
+               A request is sent by the system to notify the student.
+           Process #:	5.1
+           Process Description:
+               A request to send an email to the student that their package is stored in a specified zone, present in the mailroom. 
+           Location:
+               Notify Student Child	 ( 5 )
+    			Input Flows:
+    			Package-Organization
+    			Output Flows:
+    			Request-Approval
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Request Student Signature					Process
+           Description:
+               A signature request is sent on a pinpad, awaiting a signature by the student. 
+           Process #:	8.3
+           Process Description:
+               A signature request is shown on the pinpad on the Student's side of the pickup window. Once the student puts their signature on it, it awaits the mail associate's approval.
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  43
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+               
+           Location:
+               Validate Package Pickup Child  ( 8 )
+    			Input Flows:
+    			Successful-Scan
+    			Valid-Signature
+    			Output Flows:
+    			Student-Signature
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Residental Life Department					Function
+           Location:
+               Stockton FDD
+    			Children:	Residental Student Record System	  ( Process )
+    			Parent:	Stockton University	  ( Function )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Residental Student Record System				Process
+           Process #:	Not Assigned
+           Location:
+               Stockton FDD
+    			Parent:	Residental Life Department   ( Function )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Residential Student    					Actor
+           Location:
+               User Case Diagram
+           All Attached Relationships:
+                is a						MIN: 0   MAX: 1
+               Student
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  44
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+                [  ]						MIN: 1   MAX: 1
+               Student
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Revelent-Zone-Verified					Data Flow
+           Location:
+               Identify Package Location Child  ( 7 )
+    			Source:	Find Package Zone  ( Process )
+    			Dest:	Find Student Package  ( Process )
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Scan Local Package Barcode    				Process
+           Description:
+               The mail associate scans the local package barcode into the system. 
+           Process #:	8.2
+           Process Description:
+               The mail associate scans the local package barcode into the system. The information about the package is displayed on the computer screen for the mail associate if successful.
+           Location:
+               Validate Package Pickup Child  ( 8 )
+    			Input Flows:
+    			Correct-Package
+    			Output Flows:
+    			Successful-Scan
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Scan Tracking Number					Process
+           Description:
+               Updates the tracking number of the package if present.
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  45
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Process #:	3.3
+           Process Description:
+               The package is scanned into the system, including the tracking number. If the package has a tracking number, the update information is sent to the Third Party Mail Service. Packages will then move on to the next process. 
+           Location:
+               Inspect Package Child	 ( 3 )
+    			Input Flows:
+    			Physical-Package-Approval
+    			Tracking-Number
+    			Output Flows:
+    			Recipient-Address
+    			Update-Tracking
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     services						Relationship
+           Attached Objects:
+               Mailroom
+                services						MIN: 1   MAX: many
+               Students
+                [ go to ]						MIN: 1   MAX: 1
+           Foreign Key(s):
+               Mailroom 'services' Students
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Sign signature for pickup verification				Use Case
+           Location:
+               User Case Diagram
+               System Boundary -->		Package Handling System
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  46
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Signature						Data Element
+           Data element attributes
+               Storage Type:    	Char
+               Null Type:		NotNull
+           Location:
+               Data Flow -->    		Signature-For-Approval
+               Data Flow -->    		Valid-Signature
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Signature-For-Approval					Data Flow
+           Description:
+               This is the digital Student signature in the system upon package pickup. 
+           Composition:
+               Signature :  Char
+           Notes:
+               This signature is pending approval or disapproval by the mail associate.
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Package Handling System  ( Process )
+    			Dest:	Mail Associate  ( External Entity )
+               Diagram 0	 ( 0 )
+    			Source:	Validate Package Pickup  ( Process )
+    			Dest:	Mail Associate  ( External Entity )
+               Validate Package Pickup Child  ( 8 )
+    			Source:	Validate Student Signature  ( Process )
+    			Dest:	*** Not on Diagram ***
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  47
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Date Last Altered:	12/4/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Sort Mail						Process
+           Process #:	Not Assigned
+           Location:
+               Stockton FDD
+    			Parent:	Organize Package   ( Process )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Specify zone number					Use Case
+           Location:
+               User Case Diagram
+               System Boundary -->		Package Handling System
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Stockton University    					Function
+           Location:
+               Stockton FDD
+    			Children:	Registration   ( Function )
+    				Admissions Department	  ( Function )
+    				Residental Life Department   ( Function )
+    				Bursars	  ( Function )
+    				Mail Services Department   ( Function )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Store-Package						Data Flow
+           Location:
+               Diagram 0	 ( 0 )
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  48
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+    			Source:	Assign Package Zone  ( Process )
+    			Dest:	Package Storage  ( Data Store )
+               Assign Package Zone Child  ( 4 )
+    			Source:	Store Package  ( Process )
+    			Dest:	Package Storage  ( Data Store )
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Store Package						Process
+           Description:
+               Storing the package physically by the mail associate. 
+           Process #:	4.3
+           Process Description:
+               The Mail Associate stores the package in the assigned zone by the system. The zone number and package organization verification is sent to the next process. 
+           Location:
+               Assign Package Zone Child  ( 4 )
+    			Input Flows:
+    			Assigned-Zone-Number
+    			Output Flows:
+    			Package-Organization
+    			Store-Package
+    			Zone-Number
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     stores    						Relationship
+           Attached Objects:
+               Employees
+                stores						MIN: 0   MAX: many
+               Packages
+                [ are handled by ]					MIN: 1   MAX: many
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  49
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Foreign Key(s):
+               Packages 'are handled by' Employees
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     stores    						Relationship
+           Attached Objects:
+               Employees
+                stores						MIN: 0   MAX: many
+               Letter Mail
+                [ are handled by ]					MIN: 1   MAX: many
+           Foreign Key(s):
+               Letter Mail 'are handled by' Employees
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Student						External Entity
+           Description:
+               The Student is a person who is a current residential Stockton University Student that uses the Mailroom
+               Service.
+           Alias:
+               Recipient, Residental Student
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  50
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Notes:
+               The Student is reponsible for providing their basic information to Stockton. Their MSC Number, assigned by
+               the Mailroom, is critical for the Mailroom, as it defines what PO Box they have. The Student is also
+               reponsible for picking up their package and
+                mail and verifying their credentials.
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Output Flows:
+    			Student-Information
+    			Package-Request
+    			Package-Identification-Results
+    			Valid-Signature
+    			Input Flows:
+    			Email-Notification
+    			Correct-Package-Verification
+    			Desired-Package
+               Diagram 0	 ( 0 )
+    			Output Flows:
+    			Student-Information
+    			Input Flows:
+    			Desired-Package
+    			Output Flows:
+    			Valid-Signature
+    			Input Flows:
+    			Correct-Package-Verification
+    			Output Flows:
+    			Package-Identification-Results
+    			Input Flows:
+    			Email-Notification
+    			Output Flows:
+    			Student-Information
+    			Package-Request
+    			Student-Information
+           Date Last Altered:	12/4/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  51
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Student						Actor
+           Location:
+               User Case Diagram
+           All Attached Relationships:
+                [ is a ]						MIN: 1   MAX: 1
+               Residential Student
+                is a						MIN: 0   MAX: 1
+               Student
+                is a						MIN: 0   MAX: 1
+               Student
+                [  ]						MIN: 0   MAX: 1
+               Residential Student
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Student-Information    					Data Flow
+           Description:
+               Represents the Student's identification information.
+           Composition:
+               Name :  Char
+               Z Number :  Integer 4
+           Notes:
+               This includes the Student's name and Z-Number, that are used to identify the student.
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Student  ( External Entity )
+    			Dest:	Package Handling System  ( Process )
+               Diagram 0	 ( 0 )
+    			Source:	Student  ( External Entity )
+    			Dest:	Add Student Record  ( Process )
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  52
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+    			Source:	Student  ( External Entity )
+    			Dest:	Verify Student  ( Process )
+    			Source:	Student  ( External Entity )
+    			Dest:	Identify Package Location  ( Process )
+               Inspect Package Child	 ( 3 )
+    			Source:	Check Student Name  ( Process )
+    			Dest:	Check MSC Number  ( Process )
+               Identify Package Location Child  ( 7 )
+    			Source:	*** Not on Diagram ***
+    			Dest:	Find Student Package  ( Process )
+           Date Last Altered:	12/4/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Student-Signature    					Data Flow
+           Location:
+               Validate Package Pickup Child  ( 8 )
+    			Source:	Request Student Signature  ( Process )
+    			Dest:	Validate Student Signature  ( Process )
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Student-Verification    					Data Flow
+           Location:
+               Diagram 0	 ( 0 )
+    			Source:	Verify Student  ( Process )
+    			Dest:	Identify Package Location  ( Process )
+    			Source:	Student Database  ( Data Store )
+    			Dest:	Inspect Package  ( Process )
+               Inspect Package Child	 ( 3 )
+    			Source:	Student Database  ( Data Store )
+    			Dest:	Check Student Name  ( Process )
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  53
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+               Identify Package Location Child  ( 7 )
+    			Source:	*** Not on Diagram ***
+    			Dest:	Find Package Zone  ( Process )
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Student Database    					Data Store
+           Description:
+               The Student Database holds all of the Student's basic information relevent to the Mailroom.
+           Data Store #:	D3
+           Composition:
+               Name :  Char
+               MSC Number :  Integer 4
+               Z Number :  Integer 4
+               Address Line :  Char
+           Location:
+               Diagram 0	 ( 0 )
+    			Input Flows:
+    			New-Student-Record
+    			Output Flows:
+    			Student-Verification
+    			MSC-Number-Information
+               Inspect Package Child	 ( 3 )
+    			Output Flows:
+    			Student-Verification
+    			MSC-Number-Information
+           Date Last Altered:	12/4/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Student Record System					Process
+           Process #:	Not Assigned
+           Location:
+               Stockton FDD
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  54
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+    			Parent:	Admissions Department	  ( Function )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Students						Entity
+           Foreign Key(s):
+               Mailroom 'services' Students
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+    			Attached relationships on Mailroom ER:
+    			go to					MIN: 1   MAX: 1
+    			Mailroom
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Successful-Scan    					Data Flow
+           Location:
+               Validate Package Pickup Child  ( 8 )
+    			Source:	Scan Local Package Barcode  ( Process )
+    			Dest:	Request Student Signature  ( Process )
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Successful-Signature-Approval    				Data Flow
+           Location:
+               Validate Package Pickup Child  ( 8 )
+    			Source:	Validate Student Signature  ( Process )
+    			Dest:	Give Package  ( Process )
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  55
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     System Analyst    					Actor
+           Location:
+               User Case Diagram
+           Date Last Altered:	11/6/2018			Date Created: 11/6/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Third Party Mail Service					External Entity
+           Description:
+               The Third Party Mail Service is anyone service that delivers packages and mail to Stockton University. This
+               includes USPS, UPS, FedEx, and DHL. 
+           Alias:
+               USPS, UPS, DHL, FedEx
+           Values & Meanings:
+               
+           Notes:
+               This represents a person who works for any of the about locations that delivers the packages and mail directly
+               to Stockton.
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Input Flows:
+    			Update-Tracking
+    			Output Flows:
+    			Package-Delivery
+    			Tracking-Number
+               Diagram 0	 ( 0 )
+    			Input Flows:
+    			Update-Tracking
+    			Output Flows:
+    			Package-Delivery
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  56
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+    			Tracking-Number
+           Date Last Altered:	12/4/2018			Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Third Party Mail Service					Entity
+           Description:
+               The Third Party Mail Service is anyone service that delivers packages and mail to Stockton University. This
+               includes USPS, UPS, FedEx, and DHL. 
+           Foreign Key(s):
+               Packages 'are serviced by' Third Party Mail Service
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+               Letter Mail 'are handled by' Third Party Mail Service
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+    			Attached relationships on Mailroom ER:
+    			delivers					MIN: 1   MAX: many
+    			Packages
+    			delivers					MIN: 1   MAX: many
+    			Letter Mail
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Third Party Mail Service					Actor
+           Location:
+               User Case Diagram
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  57
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Time    						Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Length:		6
+               Null Type:		NotNull
+           Location:
+               Data Flow -->    		Update-Tracking
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Tracking-Number    					Data Flow
+           Description:
+               The Tracking Number is given on the package barcode for tracking purposes. 
+           Composition:
+               Tracking Number :  Integer 4
+           Notes:
+               This is optional, a package might not have a tracking number.
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Third Party Mail Service  ( External Entity )
+    			Dest:	Package Handling System  ( Process )
+               Diagram 0	 ( 0 )
+    			Source:	Third Party Mail Service  ( External Entity )
+    			Dest:	Inspect Package  ( Process )
+               Inspect Package Child	 ( 3 )
+    			Source:	*** Not on Diagram ***
+    			Dest:	Scan Tracking Number  ( Process )
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  58
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Tracking Number    					Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+           Location:
+               Data Flow -->    		Tracking-Number
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Unorganized-Packages					Data Flow
+           Location:
+               Diagram 0	 ( 0 )
+    			Source:	Deliver Package  ( Process )
+    			Dest:	Inspect Package  ( Process )
+               Inspect Package Child	 ( 3 )
+    			Source:	*** Not on Diagram ***
+    			Dest:	Enter Sorting Area  ( Process )
+           Date Last Altered:	11/2/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Unsatisfactory-Results					Data Flow
+           Location:
+               Inspect Package Child	 ( 3 )
+    			Source:	Check Physical Condition  ( Process )
+    			Dest:	*** Not on Diagram ***
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  59
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Update-Tracking    					Data Flow
+           Description:
+               The system updates the tracking information by the given tracking number on the package. This information is
+               sent to the Third Party Mail Service
+           Composition:
+               Location :  Char
+               Time :  Integer 4
+           Notes:
+               This is optional, a package may not have a tracking number.
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Package Handling System  ( Process )
+    			Dest:	Third Party Mail Service  ( External Entity )
+               Diagram 0	 ( 0 )
+    			Source:	Inspect Package  ( Process )
+    			Dest:	Third Party Mail Service  ( External Entity )
+               Inspect Package Child	 ( 3 )
+    			Source:	Scan Tracking Number  ( Process )
+    			Dest:	*** Not on Diagram ***
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     USPS, UPS, DHL, FedEx					Alias
+           Alias:
+               Third Party Mail Service
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  60
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Valid-Signature    					Data Flow
+           Description:
+               The student provides a digital signature to the system which is checked by the mail associate for their
+               verification of pick up.
+           Composition:
+               Signature :  Char
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Student  ( External Entity )
+    			Dest:	Package Handling System  ( Process )
+               Diagram 0	 ( 0 )
+    			Source:	Student  ( External Entity )
+    			Dest:	Validate Package Pickup  ( Process )
+               Validate Package Pickup Child  ( 8 )
+    			Source:	*** Not on Diagram ***
+    			Dest:	Request Student Signature  ( Process )
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Validate-Pickup    					Data Flow
+           Description:
+               This is a process by the mail associates approval for which a signature given by the student is credable. 
+           Composition:
+               isValidSignature :  Binary
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Mail Associate  ( External Entity )
+    			Dest:	Package Handling System  ( Process )
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  61
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+               Diagram 0	 ( 0 )
+    			Source:	Mail Associate  ( External Entity )
+    			Dest:	Validate Package Pickup  ( Process )
+               Validate Package Pickup Child  ( 8 )
+    			Source:	*** Not on Diagram ***
+    			Dest:	Validate Student Signature  ( Process )
+           Date Last Altered:	12/4/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Validate Package Pickup					Process
+           Description:
+               The Student verifies the correct package and signs their signature to verify the pickup. 
+           Process #:	8
+           Process Description:
+               Once the package is found, the student verifies that the package belongs to them. If not, the previously process is redone. The mail associate then prompts the student to sign their signature to verify that the package is theirs. Once the mail associate
+                approves of their signature, the student recieves their package. 
+           Location:
+               Diagram 0	 ( 0 )
+    			Input Flows:
+    			Package-Verification-Request
+    			Validate-Pickup
+    			Valid-Signature
+    			Package-Identification-Results
+    			Output Flows:
+    			Signature-For-Approval
+    			Relocation-Request
+    			Correct-Package-Verification
+    			Incorrect-Package
+    			Desired-Package
+           Date Last Altered:	12/4/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  62
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Validate Student Signature					Process
+           Description:
+               The Mail Associate validates the signature that the Student wrote on the pinpad.
+           Process #:	8.4
+           Process Description:
+               The Mail Associate either approves or disapproves of the signature given by the student. If the signature is not good enough, the student signs it until the signature is good enough. If successful. the student can recieve their package.
+           Location:
+               Validate Package Pickup Child  ( 8 )
+    			Input Flows:
+    			Validate-Pickup
+    			Student-Signature
+    			Output Flows:
+    			Signature-For-Approval
+    			Successful-Signature-Approval
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Verify Found Package					Process
+           Description:
+               The Mail Associate shows the package to the Student, including the shipping address, to approve that it
+               belongs to them. 
+           Process #:	8.1
+           Process Description:
+               When the package is found by the mail associate, they show that package to the student for their further approval. If the package does not belong to them, the package is stored back in the zone it was stored at and the package will try to be found again
+                by the mail associate. If the package is correct, the package is moved on to the next process with no errors. 
+           Location:
+               Validate Package Pickup Child  ( 8 )
+    			Input Flows:
+    			Package-Verification-Request
+    			Package-Identification-Results
+    			Output Flows:
+    			Correct-Package-Verification
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  63
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+    			Relocation-Request
+    			Incorrect-Package
+    			Correct-Package
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Verify Package ID    					Process
+           Process #:	Not Assigned
+           Location:
+               Stockton FDD
+    			Parent:	Organize Package   ( Process )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Verify Package Pick Up					Process
+           Process #:	Not Assigned
+           Location:
+               Stockton FDD
+    			Parent:	Organize Package   ( Process )
+           Date Last Altered:	10/31/2018    		Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Verify Student						Process
+           Description:
+               A Student shows their Student ID to the mail associate as well as their package zone number
+           Process #:	6
+           Process Description:
+               A Student goes to the Stockton mail services pickup window, telling the mail associate the zone their package is in. The Student also gives the mail associate their Student ID, which contains their name, z number, and photograph for verification reasons.
+           Location:
+               Diagram 0	 ( 0 )
+    			Input Flows:
+    			Student-Information
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  64
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+    			Package-Request
+    			Output Flows:
+    			Student-Verification
+    			Zone-Number
+               Stockton FDD
+    			Parent:	Organize Package   ( Process )
+           Date Last Altered:	12/4/2018			Date Created: 10/31/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Verify student information					Use Case
+           Location:
+               User Case Diagram
+               System Boundary -->		Package Handling System
+           All Attached Relationships:
+                [ «include» ]    					MIN: 1   MAX: 1
+               Check package condition
+                [ «extend» ]    					MIN: 1   MAX: 1
+               Confirm MSC Number
+           Date Last Altered:	11/2/2018			Date Created: 11/2/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     work at						Relationship
+           Attached Objects:
+               Employees
+                work at						MIN: 1   MAX: 1
+               Mailroom
+                [ consists of ]    					MIN: 1   MAX: many
+           Foreign Key(s):
+               Mailroom 'consists of' Employees
+               On Delete Restrict
+               On Update Restrict
+               On Insert of Child Row Restrict
+           Location:
+               Mailroom ER
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  65
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Z Number						Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Length:		8
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Student Database
+               Data Flow -->    		New-Student-Record
+               Data Flow -->    		Student-Information
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     ZIP Code						Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+           Location:
+               Data Flow -->    		Correct-Package-Verification
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Zone-Capacity-Information					Data Flow
+           Location:
+               Diagram 0	 ( 0 )
+    			Source:	Zone Capacity Database  ( Data Store )
+    			Dest:	Assign Package Zone  ( Process )
+               Assign Package Zone Child  ( 4 )
+    			Source:	Zone Capacity Database  ( Data Store )
+    			Dest:	Check Avaliable Zones  ( Process )
+           Date Last Altered:	11/20/2018    		Date Created: 11/20/2018
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  66
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Zone-Number						Data Flow
+           Description:
+               This is the Zone Number given by the student to the mail associate.
+           Composition:
+               Zone Number :  Integer 4
+           Notes:
+               The Zone number represents the location of the student's desired package
+           Location:
+               Stockton DFD  ( CONTEXT )
+    			Source:	Package Handling System  ( Process )
+    			Dest:	Mail Associate  ( External Entity )
+               Diagram 0	 ( 0 )
+    			Source:	Assign Package Zone  ( Process )
+    			Dest:	Notify Student  ( Process )
+    			Source:	Verify Student  ( Process )
+    			Dest:	Mail Associate  ( External Entity )
+               Assign Package Zone Child  ( 4 )
+    			Source:	Store Package  ( Process )
+    			Dest:	*** Not on Diagram ***
+               Notify Student Child	 ( 5 )
+    			Source:	*** Not on Diagram ***
+    			Dest:	Email Student  ( Process )
+           Date Last Altered:	12/4/2018			Date Created: 11/1/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Zone 1 Capacity    					Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  67
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Location:
+               Data Store -->    		Zone Capacity Database
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Zone 10 Capacity    					Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Zone Capacity Database
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Zone 11 Capacity    					Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Zone Capacity Database
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Zone 12 Capacity    					Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Zone Capacity Database
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  68
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Zone 2 Capacity    					Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Zone Capacity Database
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Zone 3 Capacity    					Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Zone Capacity Database
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Zone 4 Capacity    					Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Zone Capacity Database
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Zone 5 Capacity    					Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  69
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+           Location:
+               Data Store -->    		Zone Capacity Database
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Zone 6 Capacity    					Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Zone Capacity Database
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Zone 7 Capacity    					Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Zone Capacity Database
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Zone 8 Capacity    					Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Zone Capacity Database
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  70
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+     Zone 9 Capacity    					Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Null Type:		NotNull
+           Location:
+               Data Store -->    		Zone Capacity Database
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Zone Capacity Database					Data Store
+           Description:
+               The Zone Capacity Database shows how much storage is in each of the Mailroom's zones. 
+           Data Store #:	D4
+           Composition:
+               Zone 1 Capacity :  Integer 4
+               Zone 2 Capacity :  Integer 4
+               Zone 3 Capacity :  Integer 4
+               Zone 4 Capacity :  Integer 4
+               Zone 5 Capacity :  Integer 4
+               Zone 6 Capacity :  Integer 4
+               Zone 7 Capacity :  Integer 4
+               Zone 8 Capacity :  Integer 4
+               Zone 9 Capacity :  Integer 4
+               Zone 10 Capacity :  Integer 4
+               Zone 11 Capacity :  Integer 4
+               Zone 12 Capacity :  Integer 4
+           Notes:
+               This information is used to assign an unassigned package a storage location. There are a total of 12 zones in
+               the system.
+           Location:
+               Diagram 0	 ( 0 )
+    			Output Flows:
+    			Zone-Capacity-Information
+               Assign Package Zone Child  ( 4 )
+Date:  12/10/2018            Project:  MAIL SERVICES DEPARTMENT                   Page:  71
+Time:  11:37:15 AM
+                             Detailed Listing -- Alphabetically
+                             All Entries -- Whole Repository
+_________________________________________________________________________________________________
+    			Output Flows:
+    			Zone-Capacity-Information
+           Date Last Altered:	12/4/2018			Date Created: 11/20/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+     Zone Number						Data Element
+           Data element attributes
+               Storage Type:    	Integer 4
+               Length:		2
+               Null Type:		NotNull
+           Location:
+               Data Flow -->    		Package-Request
+               Data Flow -->    		Email-Notification
+               Data Flow -->    		Zone-Number
+               Data Flow -->    		Desired-Package-Zone
+           Date Last Altered:	12/4/2018			Date Created: 12/4/2018
+           ---------------------------------------------------------------------------------------------------------------------------------------------
+
